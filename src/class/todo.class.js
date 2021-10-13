@@ -1,13 +1,19 @@
-
 export class Todo {
+	static fromJson({ id, tarea, completado, creado }) {
+		const tempTodo = new Todo(tarea);
 
-    constructor( tarea ) {
+		tempTodo.id = id;
+		tempTodo.completado = completado;
+		tempTodo.creado = creado;
 
-        this.tarea = tarea;
+		return tempTodo;
+	}
 
-        this.id         = new Date().getTime();
-        this.completado = false;
-        this.creado     = new Date();
-        
-    }
+	constructor(tarea) {
+		this.tarea = tarea;
+
+		this.id = new Date().getTime();
+		this.completado = false;
+		this.creado = new Date();
+	}
 }
